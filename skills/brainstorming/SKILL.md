@@ -1,6 +1,6 @@
 ---
 name: brainstorming
-description: "Use before building something new in software - a feature, a component, new functionality or a behavior change - to settle requirements and design first. Skip for small, well-specified edits."
+description: "Use first when someone wants to build or start something new in software (\"let's make X\", \"build an app that...\", a new feature, component or behavior change), before writing any code: settles requirements and design. Skip for small, well-specified edits and for questions."
 ---
 
 # Brainstorming

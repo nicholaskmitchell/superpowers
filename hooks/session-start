@@ -46,7 +46,9 @@ escape_for_json() {
 }
 
 escape_for_json "$using_superpowers_content"
-session_context="<superpowers>\nSuperpowers skills are installed. Below is the 'superpowers:using-superpowers' skill, which explains when to use them; load other skills with the Skill tool.\n\n${using_superpowers_escaped}\n</superpowers>"
+# nkm fork: a short factual note instead of the whole using-superpowers skill,
+# so it reads as plugin metadata rather than as instructions.
+session_context="Plugin note (superpowers, installed by the user): the superpowers:brainstorming skill is for designing something new before building it, and superpowers:systematic-debugging is for investigating a bug before fixing it. Other superpowers skills are listed with the Skill tool."
 
 # Output context injection as JSON.
 # Cursor hooks expect additional_context (snake_case).
