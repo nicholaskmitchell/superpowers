@@ -242,10 +242,23 @@ function assertHeaderAvoidsNarrowOverlap(html) {
 async function main() {
   console.log('\n--- Visual Companion Branding ---');
 
-  await test('framed screens render versioned Prime Radiant logo by default', async () => {
+  // nkm fork: the remote logo is opt-in (SUPERPOWERS_ENABLE_TELEMETRY=1).
+  await test('nkm fork: no remote image by default', async () => {
+    const port = 3470;
+    const dir = '/tmp/brainstorm-branding-nkm-default';
+    await withServer({ port, dir }, async () => {
+      writeFragment(dir);
+      await sleep(300);
+      const html = await fetchHtml(port);
+      assertBrandedFallbackText(html);
+      assert(!html.includes(ASSET_URL), 'the fork should not load the remote image by default');
+    });
+  });
+
+  await test('framed screens render versioned Prime Radiant logo when SUPERPOWERS_ENABLE_TELEMETRY=1', async () => {
     const port = 3451;
     const dir = '/tmp/brainstorm-branding-default';
-    await withServer({ port, dir }, async () => {
+    await withServer({ port, dir, env: { SUPERPOWERS_ENABLE_TELEMETRY: '1' } }, async () => {
       writeFragment(dir);
       await sleep(300);
       const html = await fetchHtml(port);
@@ -258,10 +271,10 @@ async function main() {
     });
   });
 
-  await test('waiting screen renders versioned Prime Radiant logo by default', async () => {
+  await test('waiting screen renders versioned Prime Radiant logo when SUPERPOWERS_ENABLE_TELEMETRY=1', async () => {
     const port = 3452;
     const dir = '/tmp/brainstorm-branding-waiting';
-    await withServer({ port, dir }, async () => {
+    await withServer({ port, dir, env: { SUPERPOWERS_ENABLE_TELEMETRY: '1' } }, async () => {
       const html = await fetchHtml(port);
       assert(html.includes('Waiting for the agent'), 'waiting page should still render');
       assertBrandedWithLogo(html);
@@ -277,7 +290,7 @@ async function main() {
     const fixture = createPackagedServerFixture(packagedVersion);
 
     try {
-      await withServer({ port, dir, serverPath: fixture.serverPath }, async () => {
+      await withServer({ port, dir, serverPath: fixture.serverPath, env: { SUPERPOWERS_ENABLE_TELEMETRY: '1' } }, async () => {
         writeFragment(dir);
         await sleep(300);
         const html = await fetchHtml(port);

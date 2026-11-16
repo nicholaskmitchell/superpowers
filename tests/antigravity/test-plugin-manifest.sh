@@ -80,9 +80,11 @@ if not any(entry.get("path") == ".antigravity-plugin/plugin.json"
 skill_md = (root / "skills" / "using-superpowers" / "SKILL.md").read_text(encoding="utf-8")
 frontmatter = re.match(r"---\n(.*?)\n---\n", skill_md, re.DOTALL)
 description = frontmatter and re.search(r"^description:(.*)$", frontmatter.group(1), re.MULTILINE)
-if not description or "Use when starting any conversation" not in description.group(1):
-    fail("using-superpowers description no longer says 'Use when starting any "
-         "conversation'; Antigravity relies on it to bootstrap")
+# nkm fork: the description deliberately no longer says "Use when starting any
+# conversation", so Claude Code doesn't load the skill in every conversation.
+# Antigravity is not used with this fork; only check that a description exists.
+if not description or not description.group(1).strip():
+    fail("using-superpowers has no description")
 
 # --- Layout agy depends on -------------------------------------------------
 # A root plugin.json would be read instead of .antigravity-plugin/plugin.json,

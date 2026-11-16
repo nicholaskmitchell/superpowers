@@ -29,9 +29,9 @@ Create a todo per step. Steps 5–7 run only on their stated condition.
 2. **Locate.** Resolve each session to verified absolute filesystem paths using
    `references/session-discovery.md`. Confirm a past session by quoting its
    first prompt and timestamp, and list every candidate you rejected with the
-   reason, or "none". Enumerate subagent transcripts. Create
-   `~/.superpowers/diagnosing-superpowers/<session-id>/`, tell your
-   partner the path, and fill `templates/case.md` there, following its
+   reason, or "none". Enumerate subagent transcripts. Create a workspace with
+   `mktemp -d "${TMPDIR:-/tmp}/diagnosing-superpowers-<session-id>.XXXXXX"`,
+   tell your partner the path, and fill `templates/case.md` there, following its
    provenance rules for environment and skill observations.
 3. **Triage.** Read the region around the reported problem yourself. Then
    dispatch one analyst subagent per dimension in parallel, each given the
@@ -46,8 +46,10 @@ Create a todo per step. Steps 5–7 run only on their stated condition.
    actually proves and preserve the supporting case; a symlink alias is not a
    redundant copy.
 5. **GitHub issues** — when report §7 says possible or likely, or your
-   partner asks. Search open and closed issues for the symptoms per
-   `references/github-issues.md`. Show matches and suggest adding the
+   partner asks. Draft two to five search terms from the symptoms,
+   leaving out paths, repository and project names, usernames and prompt
+   text. Show the exact terms and search open and closed issues per
+   `references/github-issues.md` only after your partner approves them. Show matches and suggest adding the
    report to the closest. If none match, fill `templates/issue.md`, write
    it to the workspace, show the exact text, and create the issue only
    after approval. `gh` cannot attach files; if a bundle exists, give
@@ -93,11 +95,12 @@ yourself in step 3 and which findings to lead with in the verdict.
 - **Human prompts only.** Hook output, system reminders, and tool results
   are not your partner's words. In a subagent transcript, "user" is the
   parent agent.
-- **No superpowers diagnosis.** Report §7 states involvement and stops.
-  Never name a defect in a skill or propose a change. Your partner
-  pressing for a fix does not waive this; point at the issue step and
-  mention that a bundle is available on request. No advice to your
-  partner either.
+- **No superpowers diagnosis unless asked.** Report §7 states involvement
+  and stops. Don't name a defect in a skill or propose a change unless
+  your partner asks for one; otherwise point at the issue step and
+  mention that a bundle is available on request.
+- **Clean up.** When the diagnosis is finished, delete the workspace unless
+  your partner asks to keep it, and say so.
 - **Approval gates.** No archive before your partner has seen the scrub
   log and file list. No issue or comment before they approve the exact
   text, and none with a placeholder summary.

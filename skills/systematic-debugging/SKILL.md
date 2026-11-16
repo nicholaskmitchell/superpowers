@@ -95,9 +95,9 @@ You MUST complete each phase before proceeding to the next.
    printenv IDENTITY >/dev/null 2>&1 && echo "IDENTITY in environment" || echo "IDENTITY not in environment"
 
    # Layer 3: Signing script
-   echo "=== Keychain state: ==="
-   security list-keychains
-   security find-identity -v
+   echo "=== Signing inputs: ==="
+   [ -n "$IDENTITY" ] && echo "IDENTITY is set" || echo "IDENTITY is empty"
+   ls -l "$APP"
 
    # Layer 4: Actual signing
    codesign --sign "$IDENTITY" --verbose=4 "$APP"

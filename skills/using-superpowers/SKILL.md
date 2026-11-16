@@ -1,6 +1,6 @@
 ---
 name: using-superpowers
-description: Use when starting any conversation - explains when a superpowers skill applies and how skills fit together; use a skill when the task clearly matches it, not on every response
+description: Use when unsure which superpowers skill fits a task, or how the skills fit together
 ---
 
 <SUBAGENT-STOP>
@@ -12,8 +12,6 @@ If you were dispatched as a subagent to execute a specific task, ignore this ski
 **Use a skill when the task clearly matches its description, or when your human partner asks for it by name.** Check before substantive work — building, debugging, planning, reviewing — because process skills shape how that work goes, so they belong at the start, not halfway through.
 
 **Answer directly when no skill clearly fits.** Questions, lookups, conversation and small self-contained edits don't need a skill check. Don't invoke a skill just in case.
-
-**Before entering plan mode:** if you haven't already brainstormed, invoke the brainstorming skill first.
 
 Once you've chosen a skill, follow it. If it has a checklist, create a todo per item. If it turns out wrong for the situation, drop it.
 

@@ -1,6 +1,6 @@
 ---
 name: brainstorming
-description: "You MUST use this before any creative work - creating features, building components, adding functionality, modifying behavior, or planning anything new, in software or out of it (a talk, a business, a renovation)."
+description: "Use before building something new in software - a feature, a component, new functionality or a behavior change - to settle requirements and design first. Skip for small, well-specified edits."
 ---
 
 # Brainstorming
@@ -243,8 +243,8 @@ or two each and goes straight to your human partner, without the
 builder check.
 
 **Where it goes:** in a software repo,
-`docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md`, committed.
-Otherwise, pick a sensible place and say where. Your human partner's
+`docs/superpowers/specs/YYYY-MM-DD-<topic>-design.md`; offer to commit
+it. Otherwise, pick a sensible place and say where. Your human partner's
 preferences override both.
 
 **Builder check** (for a project): dispatch a fresh subagent with

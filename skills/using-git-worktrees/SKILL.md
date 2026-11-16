@@ -83,7 +83,7 @@ Follow this priority order. Explicit user preference always beats observed files
 git check-ignore -q .worktrees 2>/dev/null || git check-ignore -q worktrees 2>/dev/null
 ```
 
-**If NOT ignored:** Add to .gitignore, commit the change, then proceed.
+**If NOT ignored:** Add it to .gitignore, then ask your human partner before committing that change.
 
 **Why critical:** Prevents accidentally committing worktree contents to repository.
 
@@ -101,7 +101,7 @@ cd "$path"
 
 ## Step 2: Project Setup
 
-Auto-detect and run appropriate setup:
+Detect the setup the project needs, show the command, and run it only after your human partner agrees, since installing dependencies runs third-party code:
 
 ```bash
 # Node.js
