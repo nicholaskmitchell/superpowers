@@ -46,10 +46,9 @@ Create a todo per step. Steps 5–7 run only on their stated condition.
    actually proves and preserve the supporting case; a symlink alias is not a
    redundant copy.
 5. **GitHub issues** — when report §7 says possible or likely, or your
-   partner asks. Draft two to five search terms from the symptoms,
-   leaving out paths, repository and project names, usernames and prompt
-   text. Show the exact terms and search open and closed issues per
-   `references/github-issues.md` only after your partner approves them. Show matches and suggest adding the
+   partner asks. Once your partner approves 2–5 search terms (no
+   paths, names or prompt text), search open and closed issues per
+   `references/github-issues.md`. Show matches and suggest adding the
    report to the closest. If none match, fill `templates/issue.md`, write
    it to the workspace, show the exact text, and create the issue only
    after approval. `gh` cannot attach files; if a bundle exists, give
@@ -96,11 +95,9 @@ yourself in step 3 and which findings to lead with in the verdict.
   are not your partner's words. In a subagent transcript, "user" is the
   parent agent.
 - **No superpowers diagnosis unless asked.** Report §7 states involvement
-  and stops. Don't name a defect in a skill or propose a change unless
-  your partner asks for one; otherwise point at the issue step and
-  mention that a bundle is available on request.
-- **Clean up.** When the diagnosis is finished, delete the workspace unless
-  your partner asks to keep it, and say so.
+  and stops. Propose skill changes only if asked; otherwise
+  point at the issue step and mention that a bundle is available.
+- **Clean up.** Delete the workspace afterwards unless your partner keeps it.
 - **Approval gates.** No archive before your partner has seen the scrub
   log and file list. No issue or comment before they approve the exact
   text, and none with a placeholder summary.

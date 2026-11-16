@@ -306,7 +306,7 @@ async function main() {
   await test('SUPERPOWERS_DISABLE_TELEMETRY=true omits remote image but keeps local branding', async () => {
     const port = 3453;
     const dir = '/tmp/brainstorm-branding-disabled';
-    await withServer({ port, dir, env: { SUPERPOWERS_DISABLE_TELEMETRY: 'true' } }, async () => {
+    await withServer({ port, dir, env: { SUPERPOWERS_ENABLE_TELEMETRY: '1', SUPERPOWERS_DISABLE_TELEMETRY: 'true' } }, async () => {
       writeFragment(dir);
       await sleep(300);
       const html = await fetchHtml(port);
@@ -318,7 +318,7 @@ async function main() {
   await test('SUPERPOWERS_DISABLE_TELEMETRY=yes also omits the remote image on the waiting screen', async () => {
     const port = 3454;
     const dir = '/tmp/brainstorm-branding-disabled-waiting';
-    await withServer({ port, dir, env: { SUPERPOWERS_DISABLE_TELEMETRY: 'yes' } }, async () => {
+    await withServer({ port, dir, env: { SUPERPOWERS_ENABLE_TELEMETRY: '1', SUPERPOWERS_DISABLE_TELEMETRY: 'yes' } }, async () => {
       const html = await fetchHtml(port);
       assertBrandedFallbackText(html);
       assert(!html.includes(ASSET_URL), 'disabled telemetry should omit the remote image');
@@ -328,7 +328,7 @@ async function main() {
   await test('DISABLE_TELEMETRY=true omits remote image for Claude Code telemetry opt-out', async () => {
     const port = 3455;
     const dir = '/tmp/brainstorm-branding-claude-disable-telemetry';
-    await withServer({ port, dir, env: { DISABLE_TELEMETRY: 'true' } }, async () => {
+    await withServer({ port, dir, env: { SUPERPOWERS_ENABLE_TELEMETRY: '1', DISABLE_TELEMETRY: 'true' } }, async () => {
       writeFragment(dir);
       await sleep(300);
       const html = await fetchHtml(port);
@@ -340,7 +340,7 @@ async function main() {
   await test('CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC=1 omits remote image for Claude Code traffic opt-out', async () => {
     const port = 3456;
     const dir = '/tmp/brainstorm-branding-claude-disable-nonessential';
-    await withServer({ port, dir, env: { CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC: '1' } }, async () => {
+    await withServer({ port, dir, env: { SUPERPOWERS_ENABLE_TELEMETRY: '1', CLAUDE_CODE_DISABLE_NONESSENTIAL_TRAFFIC: '1' } }, async () => {
       const html = await fetchHtml(port);
       assertBrandedFallbackText(html);
       assert(!html.includes(ASSET_URL), 'Claude Code non-essential traffic opt-out should omit the remote image');

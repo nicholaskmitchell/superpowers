@@ -1,6 +1,6 @@
 # Session diagnosis: <session-id>
 
-Report path: ~/.superpowers/diagnosing-superpowers/<session-id>/report.md
+Report path: <workspace>/report.md
 Written: <ISO timestamp>
 
 ## 1. Problem statement (REQUIRED)

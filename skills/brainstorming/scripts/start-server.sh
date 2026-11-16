@@ -122,11 +122,12 @@ if [[ -n "$PROJECT_DIR" ]]; then
     exit 1
   fi
   SESSION_DIR="${PROJECT_DIR}/.superpowers/brainstorm/${SESSION_ID}"
-  # nkm fork: a self-ignoring .gitignore (as sdd-workspace does) keeps the
-  # session files and .last-token out of `git status` and out of commits.
-  # Create-only, so a repo that commits its own .gitignore here keeps it.
-  mkdir -p -- "${PROJECT_DIR}/.superpowers"
-  [ -e "${PROJECT_DIR}/.superpowers/.gitignore" ] || printf '*\n' > "${PROJECT_DIR}/.superpowers/.gitignore"
+  # nkm fork: a self-ignoring .gitignore (as sdd-workspace does for sdd/)
+  # keeps the session files and .last-token out of `git status` and out of
+  # commits. It lives in brainstorm/ so a repo's own .superpowers/sdd/ rules
+  # still apply. Create-only, so a committed .gitignore here is kept.
+  mkdir -p -- "${PROJECT_DIR}/.superpowers/brainstorm"
+  [ -e "${PROJECT_DIR}/.superpowers/brainstorm/.gitignore" ] || printf '*\n' > "${PROJECT_DIR}/.superpowers/brainstorm/.gitignore"
   # Persist the bound port and key per project so a restart reuses them and an
   # already-open browser tab reconnects to the same URL with a valid cookie.
   export BRAINSTORM_PORT_FILE="${PROJECT_DIR}/.superpowers/brainstorm/.last-port"
