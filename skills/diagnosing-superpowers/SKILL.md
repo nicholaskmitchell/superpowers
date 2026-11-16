@@ -96,8 +96,8 @@ yourself in step 3 and which findings to lead with in the verdict.
   parent agent.
 - **No superpowers diagnosis unless asked.** Report §7 states involvement
   and stops. Propose skill changes only if asked; otherwise
-  point at the issue step and mention that a bundle is available.
-- **Clean up.** Delete the workspace afterwards unless your partner keeps it.
+  point at the issue step and mention the bundle.
+- **Clean up.** Delete the workspace afterwards unless kept.
 - **Approval gates.** No archive before your partner has seen the scrub
   log and file list. No issue or comment before they approve the exact
   text, and none with a placeholder summary.
